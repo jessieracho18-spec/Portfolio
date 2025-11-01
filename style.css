@@ -1,0 +1,393 @@
+/* --- CSS Variables (Root) --- */
+/* Using variables makes it easy to change the site's color scheme. */
+:root {
+  --primary-color: #6a11cb;
+  --secondary-color: #2575fc;
+  --background-color: #f0f2f5;
+  --surface-color: #ffffff;
+  --text-color: #333;
+  --heading-color: #1a1a1a;
+  --light-text-color: #f8f9fa;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --border-radius: 12px;
+}
+
+/* --- Global & Reset Styles --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* Font properties */
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: var(--heading-color);
+  margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+/* --- Layout & Sections --- */
+main {
+  /* Using display: block (default for main) */
+  display: block;
+}
+
+.section {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center; /* Text align property */
+}
+
+.section:nth-of-type(even) {
+  background-color: var(--surface-color);
+}
+
+/* --- Header & Navigation (Flexbox) --- */
+header {
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  color: var(--light-text-color);
+  padding: 2rem 1rem;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow);
+}
+
+header h1 {
+  color: var(--light-text-color);
+  margin-bottom: 0.25rem;
+}
+
+header h2 {
+  color: var(--light-text-color);
+  font-weight: 400;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+header nav ul {
+  list-style: none;
+  /* Using Flexbox for navigation layout */
+  display: flex;
+  justify-content: center; /* Horizontally center items */
+  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  gap: 1rem;
+}
+
+header nav a {
+  color: var(--light-text-color);
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s ease;
+}
+
+header nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- Home Section (Flexbox) --- */
+.home-content {
+  display: flex;
+  align-items: center; /* Vertically align items */
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap; /* Wrap for smaller screens */
+  text-align: left;
+}
+
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 5px solid var(--surface-color);
+  box-shadow: var(--shadow);
+  object-fit: cover;
+}
+
+.intro-text h1 {
+  color: var(--heading-color);
+}
+
+/* --- Button Styles --- */
+.btn {
+  display: inline-block; /* Using inline-block for button-like links */
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  color: var(--light-text-color);
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  margin-top: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+  color: var(--light-text-color);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Skills & Projects Lists --- */
+.skills-list, .projects-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.skills-list li, .projects-list li {
+  background-color: var(--surface-color);
+  padding: 1rem 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+.skills-list li:hover, .projects-list li:hover {
+    transform: translateY(-5px);
+}
+
+/* --- Gallery Section (CSS Grid) --- */
+.gallery-container {
+  /* Using CSS Grid for the gallery layout */
+  display: grid;
+  /* Create responsive columns */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem; /* The space between grid items */
+  margin-top: 2rem;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+/* --- Quote & Letter Section --- */
+blockquote {
+  font-size: 1.25rem;
+  font-style: italic;
+  max-width: 700px;
+  margin: 1rem auto 0;
+  border-left: 4px solid var(--primary-color);
+  padding-left: 1.5rem;
+  text-align: left;
+}
+
+#letter p {
+  max-width: 800px;
+  margin: 0 auto 1rem;
+}
+
+/* --- Contact Section --- */
+#contact p {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* --- Footer --- */
+footer {
+  background-color: var(--heading-color);
+  color: var(--light-text-color);
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 40px;
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+/* For Laptops & Desktops (The current styles are the default) */
+
+/* For Tablets (e.g., screen width up to 992px) */
+@media (max-width: 992px) {
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.8rem; }
+  .section { padding: 60px 20px; }
+}
+
+/* For smaller tablets and mobile phones (e.g., screen width up to 768px) */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.6rem; }
+
+  .home-content {
+    flex-direction: column; /* Stack profile pic and text vertically */
+    text-align: center;
+  }
+
+  .intro-text {
+    text-align: center;
+  }
+}
+
+/* --- CSS-Only Lightbox Styles --- */
+
+/* Hide the radio button triggers */
+.lightbox-trigger {
+  display: none;
+}
+
+/* Style the lightbox container (hidden by default) */
+.lightbox {
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: visibility 0s 0.3s, opacity 0.3s ease;
+}
+
+/* Style the content inside the lightbox */
+.lightbox-content {
+  position: relative;
+  max-width: 85vw;
+  max-height: 85vh;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+/* Style the images inside the lightbox (all hidden by default) */
+.lightbox-image {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* This ensures the whole image is visible */
+  border-radius: var(--border-radius);
+}
+
+/* The close button and overlay */
+.lightbox-close-overlay,
+.lightbox-close-button {
+  cursor: pointer;
+  position: absolute;
+}
+
+.lightbox-close-overlay {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.lightbox-close-button {
+  top: -5px;
+  right: 5px;
+  font-size: 40px;
+  color: white;
+  z-index: 2001;
+  transition: transform 0.2s ease;
+}
+.lightbox-close-button:hover {
+  transform: scale(1.1);
+}
+
+/* THE MAGIC: Show the lightbox and add effects when a trigger is checked */
+#img1:checked ~ .lightbox, #img2:checked ~ .lightbox, #img3:checked ~ .lightbox, #img4:checked ~ .lightbox, #img5:checked ~ .lightbox, #img6:checked ~ .lightbox, #img7:checked ~ .lightbox, #img8:checked ~ .lightbox, #img9:checked ~ .lightbox, #img10:checked ~ .lightbox, #img11:checked ~ .lightbox, #img12:checked ~ .lightbox, #img13:checked ~ .lightbox, #img14:checked ~ .lightbox, #img15:checked ~ .lightbox, #img16:checked ~ .lightbox, #img17:checked ~ .lightbox {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+#img1:checked ~ .lightbox .lightbox-content, #img2:checked ~ .lightbox .lightbox-content, #img3:checked ~ .lightbox .lightbox-content, #img4:checked ~ .lightbox .lightbox-content, #img5:checked ~ .lightbox .lightbox-content, #img6:checked ~ .lightbox .lightbox-content, #img7:checked ~ .lightbox .lightbox-content, #img8:checked ~ .lightbox .lightbox-content, #img9:checked ~ .lightbox .lightbox-content, #img10:checked ~ .lightbox .lightbox-content, #img11:checked ~ .lightbox .lightbox-content, #img12:checked ~ .lightbox .lightbox-content, #img13:checked ~ .lightbox .lightbox-content, #img14:checked ~ .lightbox .lightbox-content, #img15:checked ~ .lightbox .lightbox-content, #img16:checked ~ .lightbox .lightbox-content, #img17:checked ~ .lightbox .lightbox-content {
+  transform: scale(1);
+}
+
+/* Show the correct image based on which trigger is checked */
+#img1:checked ~ .lightbox #lightbox-img1, #img2:checked ~ .lightbox #lightbox-img2, #img3:checked ~ .lightbox #lightbox-img3, #img4:checked ~ .lightbox #lightbox-img4, #img5:checked ~ .lightbox #lightbox-img5, #img6:checked ~ .lightbox #lightbox-img6, #img7:checked ~ .lightbox #lightbox-img7, #img8:checked ~ .lightbox #lightbox-img8, #img9:checked ~ .lightbox #lightbox-img9, #img10:checked ~ .lightbox #lightbox-img10, #img11:checked ~ .lightbox #lightbox-img11, #img12:checked ~ .lightbox #lightbox-img12, #img13:checked ~ .lightbox #lightbox-img13, #img14:checked ~ .lightbox #lightbox-img14, #img15:checked ~ .lightbox #lightbox-img15, #img16:checked ~ .lightbox #lightbox-img16, #img17:checked ~ .lightbox #lightbox-img17 {
+  display: block;
+}
+
+/* --- Resume Page Styles --- */
+.resume-container {
+  max-width: 850px;
+  margin: 0 auto;
+  background-color: var(--surface-color);
+  padding: 2rem 3rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.resume-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.resume-profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.resume-contact h1 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.resume-section h2 {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--secondary-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.resume-section ul {
+  padding-left: 20px;
+}
+
+.back-link {
+  text-decoration: none;
+}
